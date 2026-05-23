@@ -1,5 +1,5 @@
 $date
-	Sat May 23 12:26:12 2026
+	Sat May 23 13:56:57 2026
 $end
 $version
 	Icarus Verilog
@@ -7,22 +7,18 @@ $end
 $timescale
 	1s
 $end
-$scope module gate_tb $end
-$var wire 1 ! xor_gate $end
-$var wire 1 " or_gate $end
-$var wire 1 # nor_gate $end
-$var wire 1 $ nand_gate $end
-$var wire 1 % and_gate $end
-$var reg 1 & a $end
-$var reg 1 ' b $end
+$scope module kmap_tb $end
+$var wire 1 ! f $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$var reg 1 $ c $end
+$var reg 1 % d $end
 $scope module uut $end
-$var wire 1 & a $end
-$var wire 1 % and_gate $end
-$var wire 1 ' b $end
-$var wire 1 $ nand_gate $end
-$var wire 1 # nor_gate $end
-$var wire 1 " or_gate $end
-$var wire 1 ! xor_gate $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ c $end
+$var wire 1 % d $end
+$var wire 1 ! f $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -31,25 +27,64 @@ $dumpall
 $end
 #0
 $dumpvars
-0'
-0&
 0%
-1$
-1#
+0$
+0#
 0"
-0!
+1!
 $end
 #10
+1%
+#20
+0!
+0%
+1$
+#30
+1!
+1%
+#40
+0!
+0%
+0$
+1#
+#50
+1!
+1%
+#60
+0!
+0%
+1$
+#70
+1!
+1%
+#80
+1!
+0%
+0$
 0#
 1"
-1!
-1'
-#20
-0'
-1&
-#30
-0$
+#90
 1%
+#100
 0!
-1'
-#40
+0%
+1$
+#110
+1!
+1%
+#120
+0!
+0%
+0$
+1#
+#130
+1!
+1%
+#140
+0!
+0%
+1$
+#150
+1!
+1%
+#160
