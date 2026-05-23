@@ -16,7 +16,7 @@ kmap uut(
 );
 
 initial begin
-    $dumpfile("dump.vcd");
+    $dumpfile("kmap_dump.vcd");
     $dumpvars(0, kmap_tb);
      a=0; b=0; c=0; d=0; #10;
 a=0; b=0; c=0; d=1; #10;

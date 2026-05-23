@@ -18,7 +18,7 @@ gate  uut(
 );
 
 initial begin
-    $dumpfile("dump.vcd");
+    $dumpfile("gate_dump.vcd");
     $dumpvars(0, gate_tb);
 
     a=0; b=0; #10;
