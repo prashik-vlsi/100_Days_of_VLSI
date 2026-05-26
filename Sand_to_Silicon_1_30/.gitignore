@@ -2,3 +2,5 @@
 *.vcd
 *.vvp
 *.sim
+*.vcd
+*.sim
