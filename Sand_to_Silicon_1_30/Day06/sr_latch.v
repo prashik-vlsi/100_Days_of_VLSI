@@ -5,9 +5,14 @@ module sr_latch(
     output reg Q,
     output reg Qbar
 );
+initial begin
+    Q = 0;
+    Qbar = 1;
+end
 
 always @(*)
 begin 
+
     if(s==0 && r==0)begin
      
     end
