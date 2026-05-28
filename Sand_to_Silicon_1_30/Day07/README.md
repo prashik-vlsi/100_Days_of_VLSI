@@ -1,4 +1,4 @@
-# Day 8 - Shift Registers and Counters
+# Day 7- Shift Registers and Counters
 
 ## Modules Completed
 | Module | File | Status |
@@ -24,3 +24,5 @@
 ## Waveforms
 - rc.vcd — Ripple Counter
 - sync.vcd — Synchronous Counter
+- sipo.vcd
+- pipo.vcd
