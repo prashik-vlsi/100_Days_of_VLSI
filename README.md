@@ -5,10 +5,10 @@
 ---
 
 ## Engineer
-**Prashik Wankhede**  
-B.E. Electronics and Telecommunication  
-Aspiring VLSI Design & Verification Engineer  
-📍 Maharashtra, India  
+**Prashik Wankhede**
+B.E. Electronics and Telecommunication
+Aspiring VLSI Design & Verification Engineer
+📍 Maharashtra, India
 🔗 [GitHub](https://github.com/prashik-vlsi/100_Days_of_VLSI)
 
 ---
@@ -40,6 +40,7 @@ To build industry-grade competency in RTL design, digital verification, and VLSI
 | Day 05 | Subtractor, Encoder, Decoder, Priority Encoder | Combined combinational design | ✅ |
 | Day 06 | SR Latch, D Latch | Level-sensitive sequential circuits | ✅ |
 | Day 07 | D FF, JK FF, SIPO, PISO, Ripple Counter, Sync Counter | Edge-triggered FFs, shift registers, counters | ✅ |
+| Day 08 | Johnson Counter, Ring Counter | Feedback counters, lockup states, 2N vs N states | ✅ |
 
 ---
 
@@ -52,7 +53,8 @@ To build industry-grade competency in RTL design, digital verification, and VLSI
 ├── Day04/
 ├── Day05/
 ├── Day06/
-└── Day07/
+├── Day07/
+└── Day08/
 
 ---
 
@@ -62,7 +64,11 @@ To build industry-grade competency in RTL design, digital verification, and VLSI
 - Latch vs Flip-Flop — level vs edge triggering
 - Shift register architectures — SIPO, PISO
 - Counter design — ripple vs synchronous, propagation delay analysis
+- Johnson Counter — 2N states, complement feedback, filling and draining phases
+- Ring Counter — N states, direct feedback, lockup state awareness
 - Testbench writing, VCD dump, waveform verification
+- RTL vs Gate Level Simulation — zero delay vs SDF annotated timing
+- X state in Verilog — uninitialized signal behavior
 
 ---
 
