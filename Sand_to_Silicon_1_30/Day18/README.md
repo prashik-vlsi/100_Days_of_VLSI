@@ -66,4 +66,9 @@ All simulated test vectors match expected algebraic behavior precisely:
 - Evaluated Two's Complement subtraction underflows showing inverted Carry-out execution bounds.
 - Verified multi-cycle scalar retention within the MAC loop ($20 \rightarrow 26 \rightarrow 126$).
 
+- waveform obtain are as follow
+
+- ![Image Alt](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Day18%20wavefrom.png?raw=true)
+- 
+
 **Status:** Sign-off Complete. Design is structurally verified and ready for physical synthesis preparation.
