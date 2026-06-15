@@ -72,7 +72,7 @@ Once VALID is asserted it CANNOT be deasserted until handshake completes.
 Write value = Read value = 0xA5 ✅
 
 Waveform as followed:
-![Image Alt](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Day17.png?raw=true)
+![Image Alt]([https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Day17.png?raw=true](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Wavefrom_images/Day17.png?raw=true)
 
 
 
