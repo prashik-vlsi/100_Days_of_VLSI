@@ -34,14 +34,12 @@ Key distinction:
 - `barrel.vcd`          — Simulation waveform dump
 
 ## Simulation Results
+**Terminal output as shown**
+![Image Alt](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Wavefrom_images/Barrel_shifter_terminal_output.png?raw=true)
 
-| Test | Operation | Input     | Shamt | Expected  | Got       | Pass |
-|------|-----------|-----------|-------|-----------|-----------|------|
-| 1    | LSL       | 0000_0011 | 2     | 0000_1100 | 0000_1100 | ✓   |
-| 2    | LSR       | 1100_0000 | 3     | 0001_1000 | 0001_1000 | ✓   |
-| 3    | ASR       | 1000_1111 | 2     | 1110_0011 | 1110_0011 | ✓   |
-| 4    | ROL       | 1011_0010 | 3     | 1001_0101 | 1001_0101 | ✓   |
-| 5    | ROR       | 1011_0010 | 3     | 0101_0110 | 0101_0110 | ✓   |
+**WAVEFORM OUTPUT as shown**
+
+![Image Alt](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Wavefrom_images/Barrel_shifter_waveform.png?raw=true)
 
 All 5 test cases passed. Verified with iverilog and GTKWave.
 
