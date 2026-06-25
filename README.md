@@ -82,7 +82,7 @@ Tessolve, and eInfochips.
 | Day 22 | UART Receiver | Oversampling 16x, start detection, loopback verified | ✅ |
 | Day 23 | SPI Master | CPOL/CPHA modes, SCLK MOSI MISO CS, Xschem schematic | ✅ |
 | Day 24 | SPI Slave | CS detection, MISO drive, Master-Slave loopback | ✅ |
-| Day 25 | I2C Master | Start/stop, ACK/NACK, address phase | 🔄 |
+| Day 25 | I2C Master | Start/stop, ACK/NACK, address phase | ✅ |
 | Day 26 | I2C Slave | Address decode, data transfer, ACK generation | ⬜ |
 | Day 27 | APB Bus | Setup/access phase, PREADY, PSEL, PENABLE | ⬜ |
 | Day 28 | APB Slave Peripheral | Register map, timer peripheral, APB handshake | ⬜ |
