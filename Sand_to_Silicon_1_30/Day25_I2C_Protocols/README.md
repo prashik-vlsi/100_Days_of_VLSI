@@ -193,7 +193,7 @@ Verified Conditions
 ✔ Bug found and fixed: [off-by-one in bit counter / missing NACK handling / wrong ACK polarity — update after session]
 
 Simulation Results
-![Image Alt][https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Wavefrom_images/Screenshot%20from%202026-06-26%2001-55-30.png?raw=true]
+![Image Alt](https://github.com/prashik-vlsi/100_Days_of_VLSI/blob/main/Wavefrom_images/Screenshot%20from%202026-06-26%2001-55-30.png?raw=true)
 
 Key Learnings
 
