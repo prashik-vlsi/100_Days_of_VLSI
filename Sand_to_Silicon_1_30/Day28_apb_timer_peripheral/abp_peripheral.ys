@@ -1,0 +1,5 @@
+read_verilog abp_peripheral.v
+hierarchy -top apb_timer_peripheral
+synth -top apb_timer_peripheral
+write_verilog apb_timer_netlist.v
+stat
