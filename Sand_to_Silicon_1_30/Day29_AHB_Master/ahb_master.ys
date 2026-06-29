@@ -1,0 +1,12 @@
+read_verilog ahb_master.v
+hierarchy -top ahb_master
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+stat
+write_verilog ahb_master_netlist.v
