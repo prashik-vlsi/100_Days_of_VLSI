@@ -1,0 +1,12 @@
+read_verilog ahb_master.v
+hierarchy -top ahb_master
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+stat
+show -format dot -prefix ahb_master_schematic
