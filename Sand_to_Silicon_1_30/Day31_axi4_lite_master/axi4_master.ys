@@ -1,0 +1,13 @@
+read_verilog axi4_master_write.v
+hierarchy -top axi4_master_write
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+stat
+show -format dot -prefix axi4_master_schematics
+write_verilog axi4_master_write_netlist.v
