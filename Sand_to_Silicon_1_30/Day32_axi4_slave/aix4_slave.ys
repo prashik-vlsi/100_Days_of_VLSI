@@ -1,0 +1,19 @@
+read_verilog axi4_slave.v
+
+hierarchy -top axi4_lite_slave
+
+proc
+opt
+fsm
+opt
+
+memory
+opt
+
+techmap
+opt
+stat
+
+write_verilog synthesis/axi4_slave_netlist.v
+
+show -format dot -prefix synthesis/axi4_slave
