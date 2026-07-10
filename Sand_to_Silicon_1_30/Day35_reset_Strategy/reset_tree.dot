@@ -1,0 +1,48 @@
+digraph "reset_sync" {
+label="reset_sync";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="dst_clk", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="rst_n", color="black", fontcolor="black" ];
+n3 [ shape=diamond, label="sync_ff1", color="black", fontcolor="black" ];
+n4 [ shape=diamond, label="sync_ff2", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="sync_rst_n", color="black", fontcolor="black" ];
+c10 [ shape=record, label="{{<p6> C|<p7> D|<p8> R}|$88\n$_DFF_PN0_|{<p9> Q}}",  ];
+v0 [ label="1'1" ];
+c11 [ shape=record, label="{{<p6> C|<p7> D|<p8> R}|$89\n$_DFF_PN0_|{<p9> Q}}",  ];
+x1 [shape=box, style=rounded, label="BUF", ];
+n1:e -> c10:p6:w [color="black", fontcolor="black", label=""];
+n1:e -> c11:p6:w [color="black", fontcolor="black", label=""];
+n2:e -> c10:p8:w [color="black", fontcolor="black", label=""];
+n2:e -> c11:p8:w [color="black", fontcolor="black", label=""];
+c11:p9:e -> n3:w [color="black", fontcolor="black", label=""];
+n3:e -> c10:p7:w [color="black", fontcolor="black", label=""];
+c10:p9:e -> n4:w [color="black", fontcolor="black", label=""];
+n4:e -> x1:w [color="black", fontcolor="black", label=""];
+x1:e -> n5:w [color="black", fontcolor="black", label=""];
+v0:e -> c11:p7:w [color="black", fontcolor="black", label=""];
+}
+digraph "reset_tree" {
+label="reset_tree";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="adc_clk", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="adc_rst_n", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="cpu_clk", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="cpu_rst_n", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="raw_rst_n", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="uart_clk", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="uart_rst_n", color="black", fontcolor="black" ];
+c11 [ shape=record, label="{{<p8> dst_clk|<p9> rst_n}|adc_sync\nreset_sync|{<p10> sync_rst_n}}",  ];
+c12 [ shape=record, label="{{<p8> dst_clk|<p9> rst_n}|cpu_sync\nreset_sync|{<p10> sync_rst_n}}",  ];
+c13 [ shape=record, label="{{<p8> dst_clk|<p9> rst_n}|uart_sync\nreset_sync|{<p10> sync_rst_n}}",  ];
+n1:e -> c11:p8:w [color="black", fontcolor="black", label=""];
+c11:p10:e -> n2:w [color="black", fontcolor="black", label=""];
+n3:e -> c12:p8:w [color="black", fontcolor="black", label=""];
+c12:p10:e -> n4:w [color="black", fontcolor="black", label=""];
+n5:e -> c11:p9:w [color="black", fontcolor="black", label=""];
+n5:e -> c12:p9:w [color="black", fontcolor="black", label=""];
+n5:e -> c13:p9:w [color="black", fontcolor="black", label=""];
+n6:e -> c13:p8:w [color="black", fontcolor="black", label=""];
+c13:p10:e -> n7:w [color="black", fontcolor="black", label=""];
+}

@@ -1,0 +1,36 @@
+# Read RTL files
+read_verilog reset_sync.v
+read_verilog reset_controller.v
+read_verilog reset_tree.v
+read_verilog rdc_control_sync.v
+
+# Top module
+hierarchy -top reset_tree
+
+# Generic synthesis
+proc
+opt
+fsm
+opt
+memory
+opt
+synth -top reset_tree
+
+# Map flip-flops to OSU018 standard-cell DFFs
+dfflibmap -liberty lib/osu018_stdcells.lib
+
+# Technology mapping (combinational logic) to OSU018 cells
+abc -liberty lib/osu018_stdcells.lib
+
+opt_clean
+
+# Statistics
+stat -liberty lib/osu018_stdcells.lib
+
+# Netlists
+write_verilog -noattr synthesized_netlist.v
+write_json synthesized_netlist.json
+write_spice netlist.spice
+
+# Generate graph
+show -format dot -prefix reset_trees
