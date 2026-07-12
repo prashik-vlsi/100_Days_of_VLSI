@@ -1,0 +1,28 @@
+# Black-box declarations
+read_verilog -lib gscl45_bb.v
+
+# RTL
+read_verilog icg.v
+read_verilog register_bank.v
+
+hierarchy -check -top register_bank
+
+# Liberty library
+read_liberty -lib /home/lab-user/Desktop/bootcamp-files/Tech-pdks/gscl45nm/gscl45nm.lib
+
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+
+dfflibmap -liberty /home/lab-user/Desktop/bootcamp-files/Tech-pdks/gscl45nm/gscl45nm.lib
+abc -liberty /home/lab-user/Desktop/bootcamp-files/Tech-pdks/gscl45nm/gscl45nm.lib
+
+clean
+
+write_verilog register_bank_synth.v
+write_spice register_bank.sp
