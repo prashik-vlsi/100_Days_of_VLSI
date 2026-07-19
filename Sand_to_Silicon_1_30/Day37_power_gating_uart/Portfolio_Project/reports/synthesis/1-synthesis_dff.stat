@@ -1,0 +1,25 @@
+
+53. Printing statistics.
+
+=== uart_power_gating_with_idle_timer ===
+
+   Number of wires:                206
+   Number of wire bits:            252
+   Number of public wires:          16
+   Number of public wire bits:      53
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                240
+     $_ANDNOT_                      55
+     $_AND_                          8
+     $_MUX_                         44
+     $_NAND_                        17
+     $_NOR_                         10
+     $_NOT_                          5
+     $_ORNOT_                       15
+     $_OR_                          28
+     $_XNOR_                         8
+     $_XOR_                         13
+     sky130_fd_sc_hd__dfrtp_2       37
+

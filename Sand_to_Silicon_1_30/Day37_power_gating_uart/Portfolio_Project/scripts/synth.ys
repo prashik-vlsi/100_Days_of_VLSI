@@ -1,0 +1,49 @@
+#==================================================
+# Sky130 UART Power Gating Synthesis
+#==================================================
+
+read_verilog -sv uart.v
+
+hierarchy -top uart_power_gating_with_idle_timer
+
+
+# RTL synthesis
+proc
+opt
+
+fsm
+opt
+
+memory
+opt
+
+opt_clean
+
+
+# Technology mapping
+techmap
+opt
+
+
+# Map flip flops
+dfflibmap \
+-liberty \
+/media/prashik-wankhede/PDK_USB/share/pdk/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/
+
+# Logic mapping
+abc \
+-liberty \
+/media/prashik-wankhede/PDK_USB/share/pdk/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/
+
+clean
+opt_clean
+
+
+stat
+check
+
+
+write_verilog -noattr uart_synth.v
+
+
+show -format dot -prefix uart_power_gating

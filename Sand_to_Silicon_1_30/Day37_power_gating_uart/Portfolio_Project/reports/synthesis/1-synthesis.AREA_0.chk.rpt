@@ -1,0 +1,7 @@
+
+60. Executing CHECK pass (checking for obvious problems).
+Checking module uart_power_gating_with_idle_timer...
+Warning: Wire uart_power_gating_with_idle_timer.\tx_busy is used but has no driver.
+Warning: Wire uart_power_gating_with_idle_timer.\tx is used but has no driver.
+Warning: Wire uart_power_gating_with_idle_timer.\sleep_ack is used but has no driver.
+Found and reported 3 problems.
