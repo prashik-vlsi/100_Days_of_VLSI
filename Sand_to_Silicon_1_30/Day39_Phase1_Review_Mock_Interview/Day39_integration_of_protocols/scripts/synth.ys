@@ -1,0 +1,113 @@
+#==============================================================
+# Project      : UART Receiver + FIFO
+# Top Module   : my_design
+# Technology   : SKY130 HD
+# Tool         : Yosys
+#==============================================================
+
+#--------------------------------------------------------------
+# Read SKY130 Liberty
+#--------------------------------------------------------------
+read_liberty -lib \
+/media/prashik-wankhede/SKY130_PDK/.ciel/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+#--------------------------------------------------------------
+# Read RTL
+#--------------------------------------------------------------
+read_verilog design.v
+read_verilog uart_rx.v
+read_verilog sync_fifo.v
+
+#--------------------------------------------------------------
+# Top Module
+#--------------------------------------------------------------
+hierarchy -check -top my_design
+
+#--------------------------------------------------------------
+# Generic Synthesis
+#--------------------------------------------------------------
+proc
+
+opt
+
+fsm
+
+opt
+
+memory
+
+opt
+
+techmap
+
+opt
+
+flatten
+
+clean
+
+#--------------------------------------------------------------
+# Technology Mapping
+#--------------------------------------------------------------
+dfflibmap \
+-liberty \
+/media/prashik-wankhede/SKY130_PDK/.ciel/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+abc \
+-liberty \
+/media/prashik-wankhede/SKY130_PDK/.ciel/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+#--------------------------------------------------------------
+# Optimization
+#--------------------------------------------------------------
+opt
+
+clean
+
+check
+
+#--------------------------------------------------------------
+# Statistics
+#--------------------------------------------------------------
+stat
+
+stat \
+-liberty \
+/media/prashik-wankhede/SKY130_PDK/.ciel/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+#--------------------------------------------------------------
+# Outputs
+#--------------------------------------------------------------
+
+# Synthesized gate-level netlist
+write_verilog design_synth.v
+
+# JSON Netlist
+write_json design.json
+
+# BLIF Netlist
+write_blif design.blif
+
+# EDIF Netlist
+write_edif design.edif
+
+# RTL/Gate Schematic
+show \
+-format dot \
+-prefix design
+
+#--------------------------------------------------------------
+# Finish
+#--------------------------------------------------------------
+echo ""
+echo "=============================================="
+echo "      SKY130 SYNTHESIS COMPLETED"
+echo "=============================================="
+echo ""
+echo "Generated Files:"
+echo "  design_synth.v"
+echo "  design.dot"
+echo "  design.json"
+echo "  design.blif"
+echo "  design.edif"
+echo ""
