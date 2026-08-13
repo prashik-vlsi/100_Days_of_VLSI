@@ -1,0 +1,43 @@
+# ==============================================================================
+# NATIVE YOSYS SYNTHESIS SCRIPT (synth.ys)
+# Module: vitalguard_core | PDK: Sky130 HD
+# ==============================================================================
+
+# 1. READ LIBERTY LIBRARY
+read_liberty -lib /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 2. READ RTL SOURCE
+read_verilog design.v
+
+# 3. ELABORATION & HIERARCHY CHECK
+hierarchy -check -top vitalguard_core
+
+# 4. RTL OPTIMIZATION PASSES
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+flatten
+clean
+
+# 5. TECHNOLOGY MAPPING (Registers & Logic)
+# Convert async reset / enable flip-flops to target-supported structures
+techmap -map +/adff2dff.v
+dfflegalize -cell $_DFF_P_ 0 -cell $_DFF_PN0_ 0 -cell $_DFFE_PN0N_ 0
+
+abc -liberty /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+dfflibmap -liberty /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 6. CONSTANTS & CLEANUP
+hilomap -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+splitnets -ports
+opt_clean -purge
+
+# 7. CHECKS & WRITE OUTPUT
+check
+stat
+write_verilog -noattr -noexpr design_netlist.v
