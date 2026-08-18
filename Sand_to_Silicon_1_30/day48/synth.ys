@@ -1,0 +1,51 @@
+# ==============================================================================
+# YOSYS SYNTHESIS SCRIPT FOR MUX4_1
+# PDK: Sky130 HD
+# ==============================================================================
+
+# 1. READ LIBRARY
+read_liberty -lib /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 2. READ DESIGN (with -sv flag for SystemVerilog)
+read_verilog -sv design.sv
+
+# 3. HIERARCHY CHECK
+hierarchy -check -top mux4_1
+
+# 4. RTL OPTIMIZATION
+proc
+opt
+fsm
+opt
+memory
+opt
+
+# 5. TECHNOLOGY MAPPING
+techmap
+opt
+flatten
+clean
+
+# 6. LOGIC OPTIMIZATION & MAPPING TO CELLS
+abc -liberty /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 7. CLEANUP
+hilomap -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+splitnets -ports
+opt_clean -purge
+
+# 8. CHECK & REPORT
+check
+stat
+
+check
+
+
+
+stat -liberty /home/prashik-wankhede/vlsi_workspace/OpenSTA/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 9. GENERATE SCHEMATIC (DOT format)
+show -format dot -prefix design_schematic
+
+# 10. WRITE NETLIST
+write_verilog -noattr -noexpr design_netlist.v
